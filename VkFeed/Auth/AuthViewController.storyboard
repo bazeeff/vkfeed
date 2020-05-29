@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ohu-wZ-bzE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="wGt-mi-Ywq">
+            <objects>
+                <viewController id="ohu-wZ-bzE" customClass="AuthViewController" customModule="VkFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gLN-OW-2JO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWw-hZ-Bac">
+                                <rect key="frame" x="184" y="433" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-6a-lIL">
+                                <rect key="frame" x="50.5" y="422" width="313" height="52"/>
+                                <color key="backgroundColor" red="0.23777738209999999" green="0.35320651530000002" blue="0.96430343389999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="QxG-O2-xBi"/>
+                                    <constraint firstAttribute="width" constant="313" id="aGc-Ve-dso"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Войти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInTouch" destination="ohu-wZ-bzE" eventType="touchUpInside" id="YhL-NZ-naO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WWw-hZ-Bac" firstAttribute="centerY" secondItem="gLN-OW-2JO" secondAttribute="centerY" id="1WL-v0-ex1"/>
+                            <constraint firstItem="l9R-6a-lIL" firstAttribute="centerY" secondItem="gLN-OW-2JO" secondAttribute="centerY" id="WUh-at-MAN"/>
+                            <constraint firstItem="l9R-6a-lIL" firstAttribute="centerX" secondItem="gLN-OW-2JO" secondAttribute="centerX" id="Wu5-Na-3EO"/>
+                            <constraint firstItem="WWw-hZ-Bac" firstAttribute="centerX" secondItem="gLN-OW-2JO" secondAttribute="centerX" id="nfI-ji-CKT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uEm-P1-9Ck"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Izy-3A-fYT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="-8.0357142857142847"/>
+        </scene>
+    </scenes>
+</document>
