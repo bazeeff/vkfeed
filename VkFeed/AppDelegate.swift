@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
         print(#function)
         let feedVC: FeedViewController = FeedViewController.loadFromStoryboard()
         let navVC = UINavigationController(rootViewController: feedVC)
-        window?.rootViewController = navVC
+        window?.rootViewController = navVC        
     }
     
     func authServiceDidSignInFail() {
