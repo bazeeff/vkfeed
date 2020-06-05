@@ -5,7 +5,6 @@
 //  Created by Ivan0v42 on 03.06.2020.
 //  Copyright © 2020 Mac. All rights reserved.
 //
-
 import Foundation
 import Alamofire
 protocol Networking {
@@ -15,7 +14,7 @@ protocol Networking {
 final class NetworkService: Networking {
     
     private let authService: AuthService
-    
+
     init(authService: AuthService = AppDelegate.shared().authService) {
         self.authService = authService
     }
@@ -26,8 +25,10 @@ final class NetworkService: Networking {
         allParams["access_token"] = token
         allParams["v"] = API.version
         let url = self.url(from: path, params: allParams)
+        //print(url)
         return AF.request(url)
-    }
+        }
+        
     
     private func url(from path: String, params: [String: String]) -> URL {
         var components = URLComponents()

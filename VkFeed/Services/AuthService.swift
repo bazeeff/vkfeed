@@ -46,7 +46,7 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     
     func wakeUpSession() {
-        let scope = ["offline,friends, wall"]
+        let scope = ["wall, friends"]
         
         VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             if state == VKAuthorizationState.authorized {
