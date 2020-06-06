@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C035AD432489E1A000A2700E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C035AD422489E1A000A2700E /* NetworkDataFetcher.swift */; };
 		C058D11C24767A0300F2DB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058D11B24767A0300F2DB71 /* AppDelegate.swift */; };
 		C058D11E24767A0300F2DB71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058D11D24767A0300F2DB71 /* SceneDelegate.swift */; };
 		C058D12524767A0900F2DB71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C058D12424767A0900F2DB71 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C035AD422489E1A000A2700E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		C058D11824767A0300F2DB71 /* VkFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C058D11B24767A0300F2DB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C058D11D24767A0300F2DB71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				C058D15D24769AE400F2DB71 /* AuthService.swift */,
 				C0738040248700B000C36FB4 /* API.swift */,
+				C035AD422489E1A000A2700E /* NetworkDataFetcher.swift */,
 				C073803E2486FFAF00C36FB4 /* NetworkService.swift */,
 				C07380442487EB5A00C36FB4 /* Models */,
 			);
@@ -248,6 +251,7 @@
 				C058D11C24767A0300F2DB71 /* AppDelegate.swift in Sources */,
 				C0E0FED924788257005BEADA /* UIViewController+Storyboard.swift in Sources */,
 				C0E0FEDC247BFDA9005BEADA /* FeedViewController.swift in Sources */,
+				C035AD432489E1A000A2700E /* NetworkDataFetcher.swift in Sources */,
 				C058D11E24767A0300F2DB71 /* SceneDelegate.swift in Sources */,
 				C0738041248700B000C36FB4 /* API.swift in Sources */,
 				C07380432487EB5100C36FB4 /* FeedResponse.swift in Sources */,
