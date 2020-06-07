@@ -32,7 +32,7 @@ struct NetworkDataFetcher: DataFetcher {
                        let model:FeedResponseWrapped = try decoder.decode(FeedResponseWrapped.self, from: result.data!)
                            response=model
                        } catch {print("error\(error)")}
-                   print(response as Any)
+                   //print(response as Any)
                     completion(response)
                    } else {
                        print(result.error?.localizedDescription ?? "")
