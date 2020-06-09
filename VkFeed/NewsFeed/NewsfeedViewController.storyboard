@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y5A-Rk-sp6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Newsfeed View Controller-->
+        <scene sceneID="sWm-h3-Yr8">
+            <objects>
+                <viewController id="y5A-Rk-sp6" customClass="NewsfeedViewController" customModule="VkFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uRh-rE-BvK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="smI-mH-XpQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y5A-Rk-sp6" id="Ppn-LJ-V1V"/>
+                                    <outlet property="delegate" destination="y5A-Rk-sp6" id="NTh-lb-HaA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="smI-mH-XpQ" firstAttribute="leading" secondItem="say-fj-KGW" secondAttribute="leading" id="1iH-Nd-fei"/>
+                            <constraint firstItem="say-fj-KGW" firstAttribute="bottom" secondItem="smI-mH-XpQ" secondAttribute="bottom" id="Hhs-nK-C5o"/>
+                            <constraint firstItem="say-fj-KGW" firstAttribute="trailing" secondItem="smI-mH-XpQ" secondAttribute="trailing" id="mFg-AJ-nPH"/>
+                            <constraint firstItem="smI-mH-XpQ" firstAttribute="top" secondItem="say-fj-KGW" secondAttribute="top" id="rrB-bL-ZCr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="say-fj-KGW"/>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="smI-mH-XpQ" id="fLU-xM-fYx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFc-iH-9pz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647.82608695652175" y="301.33928571428572"/>
+        </scene>
+    </scenes>
+</document>
