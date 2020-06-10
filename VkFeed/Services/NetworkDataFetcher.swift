@@ -20,7 +20,7 @@ struct NetworkDataFetcher: DataFetcher {
         self.networking = networking
       }
 
-    func getFeed(completion: @escaping (FeedResponseWrapped?) -> ()) {
+     func getFeed(completion: @escaping (FeedResponseWrapped?) -> ()) {
         var response: FeedResponseWrapped?
         let params = ["filters": "post, photo"]
         let request = networking.request(path: API.newsFeed, params: params)

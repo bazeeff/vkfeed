@@ -25,6 +25,7 @@ final class NetworkService: Networking {
         allParams["access_token"] = token
         allParams["v"] = API.version
         let url = self.url(from: path, params: allParams)
+        print(url)
         return AF.request(url)
         }
         
