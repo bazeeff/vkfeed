@@ -10,27 +10,8 @@ import UIKit
 import Kingfisher
 
 class WebImageView: UIImageView{
-    func set(imageURL:String){
-        guard let url = URL(string: imageURL) else { return }
+    func set(imageURL:String?){
+        guard let imageURL = imageURL, let url = URL(string: imageURL) else { return }
         self.kf.setImage(with: url)
     }
-//
-//
-//    func downloadImage(urlString : String){
-//        guard let url = URL.init(string: urlString) else {
-//            return
-//        }
-//        let resource = ImageResource(downloadURL: url)
-//
-//        KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
-//            switch result {
-//            case .success(let value):
-//                print("Image: \(value.image). Got from: \(value.cacheType)")
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
-//    }
-
-
 }
