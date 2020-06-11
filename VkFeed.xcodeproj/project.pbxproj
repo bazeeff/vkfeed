@@ -26,24 +26,12 @@
 		C075E54C248DC7DF00A998DA /* NewsfeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075E545248DC7DF00A998DA /* NewsfeedInteractor.swift */; };
 		C075E54D248DC7DF00A998DA /* NewsfeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C075E546248DC7DF00A998DA /* NewsfeedViewController.xib */; };
 		C075E54F248DED6800A998DA /* NewsfeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C075E54E248DED6800A998DA /* NewsfeedViewController.storyboard */; };
+		C0B1931D2491A03300431D2F /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1931C2491A03300431D2F /* WebImageView.swift */; };
 		C0E0FED724770A09005BEADA /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C058D1642476BFAB00F2DB71 /* AuthViewController.storyboard */; };
 		C0E0FED924788257005BEADA /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0FED824788257005BEADA /* UIViewController+Storyboard.swift */; };
 		C0E0FEDC247BFDA9005BEADA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0FEDB247BFDA9005BEADA /* FeedViewController.swift */; };
 		C0E0FEDE247BFEAC005BEADA /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E0FEDD247BFEAB005BEADA /* FeedViewController.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C058D14F247686E600F2DB71 /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C0118E5A248F157F0061B7B5 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
@@ -69,6 +57,7 @@
 		C075E545248DC7DF00A998DA /* NewsfeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedInteractor.swift; sourceTree = "<group>"; };
 		C075E546248DC7DF00A998DA /* NewsfeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedViewController.xib; sourceTree = "<group>"; };
 		C075E54E248DED6800A998DA /* NewsfeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedViewController.storyboard; sourceTree = "<group>"; };
+		C0B1931C2491A03300431D2F /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		C0E0FED824788257005BEADA /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		C0E0FEDB247BFDA9005BEADA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		C0E0FEDD247BFEAB005BEADA /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
@@ -193,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E0FED824788257005BEADA /* UIViewController+Storyboard.swift */,
+				C0B1931C2491A03300431D2F /* WebImageView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,7 +197,6 @@
 				C058D11424767A0300F2DB71 /* Sources */,
 				C058D11524767A0300F2DB71 /* Frameworks */,
 				C058D11624767A0300F2DB71 /* Resources */,
-				C058D14F247686E600F2DB71 /* Embed Libraries */,
 				C058D1512476879600F2DB71 /* ShellScript */,
 			);
 			buildRules = (
@@ -277,14 +266,15 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/VKSdkFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -304,6 +294,7 @@
 				C0118E5B248F157F0061B7B5 /* NewsfeedCell.swift in Sources */,
 				C0E0FEDC247BFDA9005BEADA /* FeedViewController.swift in Sources */,
 				C075E54B248DC7DF00A998DA /* NewsfeedViewController.swift in Sources */,
+				C0B1931D2491A03300431D2F /* WebImageView.swift in Sources */,
 				C035AD432489E1A000A2700E /* NetworkDataFetcher.swift in Sources */,
 				C075E548248DC7DF00A998DA /* NewsfeedWorker.swift in Sources */,
 				C075E549248DC7DF00A998DA /* NewsfeedRouter.swift in Sources */,
