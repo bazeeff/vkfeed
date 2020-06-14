@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct Sizes: FeedCeelSizes {
-    var bottomView: CGRect
+    var bottomViewFrame: CGRect
     var totalHeight: CGFloat
     var postLabelFrame: CGRect
     var attachmentFrame: CGRect
@@ -21,6 +21,7 @@ struct Constants {
     static let topViewHeight : CGFloat = 36
     static let postLabelInsets = UIEdgeInsets(top: 8 + Constants.topViewHeight + 8, left: 8, bottom: 8, right: 8)
     static let postLabelFont = UIFont.systemFont(ofSize: 14)
+    static let bottomViewHeight: CGFloat = 50
 }
 
 protocol FeedCeelLayoutCalculatorProtocol {
@@ -47,8 +48,29 @@ final class FeedCeelLayoutCalculator: FeedCeelLayoutCalculatorProtocol{
             let height = text.height(width: width, font: Constants.postLabelFont)
             postLabelFrame.size = CGSize(width: width, height: height)
         }
- 
-        return Sizes(bottomView: CGRect.zero, totalHeight: 300, postLabelFrame: postLabelFrame, attachmentFrame: CGRect.zero)
+        
+        let attachmentTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsets.top : postLabelFrame.maxY + Constants.postLabelInsets.bottom
+        
+        var attachmentFrame = CGRect(origin: CGPoint(x: 0, y: attachmentTop), size: CGSize.zero)
+        
+        if let attachment = photoAttachment {
+            let photoHeight : Float = Float(attachment.height)
+            let photoWidth : Float = Float(attachment.width)
+            
+            let ration = Float(photoHeight / photoWidth)
+            print(ration) 
+            attachmentFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * CGFloat(ration))
+        }
+        
+        let bottomViewTop = max(postLabelFrame.maxY, attachmentFrame.maxY)
+        
+        let bottomViewFrame = CGRect(origin: CGPoint(x:0, y: bottomViewTop), size: CGSize(width: cardViewWidth, height: Constants.bottomViewHeight))
+        
+        let totalHeight = bottomViewFrame.maxY + Constants.cardInsets.bottom
+        return Sizes(bottomViewFrame: bottomViewFrame,
+                     totalHeight: totalHeight,
+                     postLabelFrame: postLabelFrame,
+                     attachmentFrame: attachmentFrame)
     }
     
 }

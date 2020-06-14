@@ -26,7 +26,7 @@ protocol FeedCeelViewModel {
 protocol FeedCeelSizes {
     var postLabelFrame: CGRect { get }
     var attachmentFrame: CGRect { get }
-    var bottomView: CGRect { get }
+    var bottomViewFrame: CGRect { get }
     var totalHeight: CGFloat { get }
 }
 
@@ -59,6 +59,12 @@ class NewsfeedCell: UITableViewCell {
         iconImageView.clipsToBounds = true
     }
     
+    override func prepareForReuse() {
+        iconImageView.set(imageURL: nil)
+        postImageView.set(imageURL: nil)
+    }
+    
+    
     func set(viewModel: FeedCeelViewModel){
         iconImageView.set(imageURL:viewModel.iconUrlString!)
         nameLabel.text = viewModel.name
@@ -71,7 +77,7 @@ class NewsfeedCell: UITableViewCell {
         viewsLabel.text = viewModel.views
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachmentFrame
-        bottomView.frame = viewModel.sizes.bottomView
+        bottomView.frame = viewModel.sizes.bottomViewFrame
         if let photoAttachment = viewModel.photoAttachment {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
             postImageView.isHidden = false
