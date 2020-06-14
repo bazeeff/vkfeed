@@ -11,11 +11,11 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="221" id="4Z9-Wc-XC4" customClass="NewsfeedCell" customModule="VkFeed" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Z9-Wc-XC4" id="7zk-jU-4lU" userLabel="Card View">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Z9-Wc-XC4" id="7zk-jU-4lU">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PqS-OT-Pl4">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PqS-OT-Pl4" userLabel="Card View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -143,6 +143,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bottomView" destination="FHP-m7-VjA" id="3dT-t5-X9P"/>
                 <outlet property="cardView" destination="7zk-jU-4lU" id="Y0W-HI-4ly"/>
                 <outlet property="commentsLabel" destination="uRC-6L-bYA" id="8pM-so-MUW"/>
                 <outlet property="dateLabel" destination="QXn-qK-Ql3" id="3BM-jW-U0l"/>
