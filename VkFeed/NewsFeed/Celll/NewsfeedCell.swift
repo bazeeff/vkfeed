@@ -19,7 +19,7 @@ protocol FeedCeelViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var views: String? { get }
-    var photoAttachment: FeedCeelPhotoAttachmentViewModel? { get }
+    var photoAttachments: [FeedCeelPhotoAttachmentViewModel] { get }
     var sizes: FeedCeelSizes { get }
 }
 
@@ -37,6 +37,13 @@ protocol FeedCeelPhotoAttachmentViewModel {
 
 }
 
+protocol FeedCeelVideoAttachmentViewModel {
+    //var duration: Int? { get }
+    var first_frame_800: String? { get }
+}
+
+
+
 class NewsfeedCell: UITableViewCell {
     
     static let reuseId = "NewsfeedCell"
@@ -52,6 +59,8 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var sharesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
+    
+    let galleryCollectionView = GalleryCollectionView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -76,13 +85,23 @@ class NewsfeedCell: UITableViewCell {
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.views
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
-        if let photoAttachment = viewModel.photoAttachment {
+
+        
+        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
             postImageView.isHidden = false
-        } else {postImageView.isHidden = true
-        }
+            galleryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachments.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachmentFrame
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachments)
+            }
+         else {postImageView.isHidden = true
+        
     }
     
+}
 }

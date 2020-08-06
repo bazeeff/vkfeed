@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol DataFetcher {
-    func getFeed(completion: @escaping (FeedResponseWrapped?)->())
+    func getFeed(nextBatchFrom: String?, completion: @escaping (FeedResponse?)->())
     }
     
 struct NetworkDataFetcher: DataFetcher {
@@ -20,19 +20,19 @@ struct NetworkDataFetcher: DataFetcher {
         self.networking = networking
       }
 
-     func getFeed(completion: @escaping (FeedResponseWrapped?) -> ()) {
-        var response: FeedResponseWrapped?
-        let params = ["filters": "post, photo"]
+     func getFeed(nextBatchFrom: String?, completion: @escaping (FeedResponse?) -> ()) {
+        var response: FeedResponse?
+        var params = ["filters": "post, photo"]
+        params["start_from"] = nextBatchFrom
         let request = networking.request(path: API.newsFeed, params: params)
-             request.responseDecodable { (result: DataResponse<FeedResponseWrapped, AFError>) in
-               if result.value != nil {
+             request.responseDecodable { (result: DataResponse<FeedResponse, AFError>) in
+                if result.value != nil {
                    do {
                        let decoder = JSONDecoder()
                            decoder.keyDecodingStrategy = .convertFromSnakeCase
-                       let model:FeedResponseWrapped = try decoder.decode(FeedResponseWrapped.self, from: result.data!)
+                       let model:FeedResponse = try decoder.decode(FeedResponse.self, from: result.data!)
                            response=model
                        } catch {print("error\(error)")}
-                   //print(response as Any)
                     completion(response)
                    } else {
                        print(result.error?.localizedDescription ?? "")

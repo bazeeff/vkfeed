@@ -17,14 +17,12 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //authService=AuthService()
         authService = AppDelegate.shared().authService
         
     }
 
 
     @IBAction func signInTouch() {
-       // print(123)
         authService.wakeUpSession()
     }
     

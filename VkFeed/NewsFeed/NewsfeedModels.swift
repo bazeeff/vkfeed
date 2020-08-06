@@ -14,11 +14,12 @@ enum Newsfeed {
     struct Request {
       enum RequestType {
         case getNewsfeed
+        case getNextBatch
       }
     }
     struct Response {
       enum ResponseType {
-        case presentNewsfeed (feed:FeedResponseWrapped)
+        case presentNewsfeed (feed:FeedResponse)
       }
     }
     struct ViewModel {
@@ -41,7 +42,7 @@ struct FeedViewModel {
         var comments: String?
         var shares: String?
         var views: String?
-        var photoAttachment: FeedCeelPhotoAttachmentViewModel?
+        var photoAttachments: [FeedCeelPhotoAttachmentViewModel]
         var sizes: FeedCeelSizes
     }
     
@@ -49,6 +50,12 @@ struct FeedViewModel {
         var photoUrlString: String?
         var width: Int
         var height: Int
+    }
+    
+    struct FeedCellVideoAttachment: FeedCeelVideoAttachmentViewModel {
+        
+        //var duration: Int?
+        var first_frame_800: String?
     }
     
      let cells: [Cell]

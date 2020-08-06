@@ -25,6 +25,7 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
   func presentData(response: Newsfeed.Model.Response.ResponseType) {
      switch response {
       case .presentNewsfeed(let feed):
+        
         let cells = feed.response.items.map { (feedItem) in
             
             cellViewModel(from: feedItem, profiles: feed.response.profiles, groups: feed.response.groups)
@@ -37,11 +38,12 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
   
     
     private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups:[Group]) -> FeedViewModel.Cell {
-        let profile = self.profile(for: feedItem.sourceId!, profiles: profiles, groups: groups)
+        let profile = self.profile(for: (feedItem.sourceId)!, profiles: profiles, groups: groups)
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitle = dateFormatter.string(from: date)
-        let photoAttachment = self.photoAttachment(feedItem: feedItem)
-        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
+        let photoAttachments = self.photoAttachments(feedItem: feedItem)
+        
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachments: photoAttachments)
         
         return FeedViewModel.Cell.init(
             iconUrlString: profile.photo,
@@ -52,7 +54,7 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
             comments: String(feedItem.comments?.count ?? 0),
             shares: String(feedItem.reposts?.count ?? 0),
             views: String(feedItem.views?.count ?? 0),
-            photoAttachment: photoAttachment,
+            photoAttachments: photoAttachments,
             sizes: sizes)
        }
 
@@ -74,4 +76,26 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         }
         return FeedViewModel.FeedCeelPhotoAttachment.init(photoUrlString: firstPhoto.srcBIG, width: firstPhoto.width ?? 0 , height: firstPhoto.height ?? 0)
     }
+    
+    
+
+    private func photoAttachments(feedItem: FeedItem)->[FeedViewModel.FeedCeelPhotoAttachment] {
+        guard let attachments = feedItem.attachments else {return []}
+        return attachments.compactMap({(attachment) ->FeedViewModel.FeedCeelPhotoAttachment? in
+            guard let photo = attachment.photo else {return nil}
+            return FeedViewModel.FeedCeelPhotoAttachment.init(photoUrlString: photo.srcBIG, width: photo.width ?? 0, height: photo.height ?? 0)
+        })
+    }
+    
+//    private func videoAttachment(feedItem: FeedItem)->FeedViewModel.FeedCellVideoAttachment? {
+//        guard  let videos = feedItem.attachments?.compactMap({(attachment) in
+//            attachment.video
+//        }), let firstPhoto = videos.first else {
+//            return nil
+//        }
+//
+//        return FeedViewModel.FeedCellVideoAttachment.init(accessKey: String?, date: <#T##Double#>, duration: <#T##Int#>)
+//    }
+    
+    
 }

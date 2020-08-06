@@ -26,7 +26,9 @@ final class NetworkService: Networking {
         allParams["v"] = API.version
         let url = self.url(from: path, params: allParams)
         print(url)
+        
         return AF.request(url)
+        
         }
         
     private func url(from path: String, params: [String: String]) -> URL {

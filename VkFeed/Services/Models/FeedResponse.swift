@@ -9,14 +9,15 @@
 import Foundation
 
 
-struct FeedResponseWrapped: Decodable{
-    let response: FeedResponse
+struct FeedResponse: Decodable{
+    var response: FeedResponseWrapped
 }
 
-struct FeedResponse: Decodable {
+struct FeedResponseWrapped: Decodable {
     var items: [FeedItem]
     var profiles: [Profile]
     var groups: [Group]
+    var nextFrom: String?
 }
 
 struct FeedItem:Decodable {
@@ -34,6 +35,15 @@ struct FeedItem:Decodable {
 
 struct Attachment:Decodable {
     let photo: Photo?
+    let video: Video?
+}
+
+
+struct Video: Decodable {
+   
+    let duration: Int?
+    let photo320: String?
+    
 }
 
 struct Photo:Decodable {

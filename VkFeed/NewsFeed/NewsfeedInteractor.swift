@@ -25,16 +25,19 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
   
     switch request {
     case .getNewsfeed:
-           fetcher.getFeed { [weak self] (feedResponse) in
-               guard let feedResponse = feedResponse else { return }
-            
-            feedResponse.response.items.map({(feedItem) in
-                print(feedItem.attachments)
-                           
-                       })
-            
-            self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feedResponse))
-           }
+        
+        service?.getFeed(completion: {
+            [weak self] (feed) in
+            print(feed)
+            self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feed))
+        })
+        
+    case .getNextBatch:
+        service?.getNextBatch(completion: { (feed) in
+            self.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feed ))
+            //print(feed?.response.nextFrom)
+        })
+        
     }
     }
    

@@ -9,6 +9,8 @@
 import Foundation
 import VKSdkFramework
 
+
+
 protocol AuthServiceDelegate: class {
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
@@ -39,12 +41,8 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
        }
     
     
-    
-    
-    
-    
     func wakeUpSession() {
-        let scope = ["wall, friends"]
+        let scope = ["wall", "friends"]
         
         VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             if state == VKAuthorizationState.authorized {
