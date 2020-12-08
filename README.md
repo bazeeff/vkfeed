@@ -10,5 +10,6 @@ VkSDK - для работы с API vk.com;
 Результат:    
 ![alt text](https://github.com/bazeeff/vkfeed/blob/master/screenshot.png)
 
-https://yadi.sk/i/2zRI9wMkeNgyTQ
-
+Видео-демонстрация:    
+https://yadi.sk/i/2zRI9wMkeNgyTQ    
+https://yadi.sk/i/aTmxJByv6GwgZg    
