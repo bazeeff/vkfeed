@@ -13,6 +13,6 @@ Kingfisher - для загрузки и кэширования изображе�
 ![alt text](https://github.com/bazeeff/vkfeed/blob/master/screenshot.png)
 
 Видео-демонстрация:    
-https://yadi.sk/i/6TmYPw5e2rZ0uQ
+https://yadi.sk/i/6TmYPw5e2rZ0uQ     
 https://yadi.sk/i/2zRI9wMkeNgyTQ    
 https://yadi.sk/i/aTmxJByv6GwgZg    
